@@ -1,0 +1,30 @@
+<!-- Dashboard KPI strips + journal table -->
+
+<div class="kpi-strip-label financial">Financial KPIs — FI Impact</div>
+<div class="kpi-row">
+  <div class="kpi fi-kpi"><div class="num" id="k-rev"    style="color:var(--green)">₹0</div><div class="lbl">Revenue</div><div class="sub-lbl">From Sales Orders</div></div>
+  <div class="kpi fi-kpi"><div class="num" id="k-exp"    style="color:var(--red)">₹0</div><div class="lbl">Expenses</div><div class="sub-lbl">From Purchases</div></div>
+  <div class="kpi fi-kpi"><div class="num" id="k-profit">₹0</div><div class="lbl">Net Profit</div><div class="sub-lbl">Revenue − Expenses</div></div>
+  <div class="kpi fi-kpi"><div class="num" id="k-ar"     style="color:var(--blue)">₹0</div><div class="lbl">Receivable (AR)</div><div class="sub-lbl">GL 110000</div></div>
+  <div class="kpi fi-kpi"><div class="num" id="k-ap"     style="color:var(--orange)">₹0</div><div class="lbl">Payable (AP)</div><div class="sub-lbl">GL 200000</div></div>
+</div>
+
+<div class="strip-divider"></div>
+
+<div class="kpi-strip-label operational">Operational KPIs — SD &amp; MM Activity</div>
+<div class="kpi-row four" style="margin-bottom:24px;">
+  <div class="kpi ops-kpi"><div class="num" id="k-cust" style="color:var(--purple)">0</div><div class="lbl">Customers</div><div class="sub-lbl">SD Master Data</div></div>
+  <div class="kpi ops-kpi"><div class="num" id="k-vend" style="color:var(--blue)">0</div><div class="lbl">Vendors</div><div class="sub-lbl">MM Master Data</div></div>
+  <div class="kpi ops-kpi"><div class="num" id="k-so"   style="color:var(--green)">0</div><div class="lbl">Sales Orders</div><div class="sub-lbl">SD Transactions</div></div>
+  <div class="kpi ops-kpi"><div class="num" id="k-po"   style="color:var(--orange)">0</div><div class="lbl">Purchase Orders</div><div class="sub-lbl">MM Transactions</div></div>
+</div>
+
+<div class="sec">Journal Entries</div>
+<div class="panel">
+  <table>
+    <thead><tr><th>Date</th><th>Description</th><th>Debit (₹)</th><th>Credit (₹)</th><th>Module</th></tr></thead>
+    <tbody id="journal-tbl">
+      <tr><td colspan="5" style="text-align:center;color:var(--text3);padding:24px;font-style:italic;">No entries yet. Create Sales Orders or Purchase Orders to generate journal entries.</td></tr>
+    </tbody>
+  </table>
+</div>

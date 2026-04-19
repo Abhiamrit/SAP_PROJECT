@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NovaCorp ERP</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/modules.css">
+</head>
+<body>
+
+  <!-- ═══ LOGIN ═══ -->
+  <div id="login">
+    <div class="login-card">
+      <div class="login-logo">
+        <div class="mark">NC</div>
+        <h2>NovaCorp ERP</h2>
+        <p>Enterprise Resource Planning System</p>
+      </div>
+      <div class="lfield"><label>Username</label><input id="lu" type="text" value="admin" placeholder="admin"></div>
+      <div class="lfield"><label>Password</label><input id="lp" type="password" value="admin" placeholder="••••••"></div>
+      <button class="login-btn" onclick="doLogin()">Sign In →</button>
+      <div id="lerr">Invalid credentials. Use admin / admin</div>
+      <div class="login-hint">Demo: <code>admin</code> / <code>admin</code></div>
+    </div>
+  </div>
+
+  <!-- ═══ APP SHELL ═══ -->
+  <div id="app">
+    <div class="topbar">
+      <div class="tb-logo">NovaCorp ERP</div>
+      <nav class="tb-nav">
+        <a class="active" onclick="nav('dashboard',this)">Dashboard</a>
+        <a onclick="nav('fi',this)">FI — Finance</a>
+        <a onclick="nav('mm',this)">MM — Materials</a>
+        <a onclick="nav('sd',this)">SD — Sales</a>
+      </nav>
+      <div class="tb-right">
+        <span class="tb-tag">NC01 · <span id="sess">admin</span></span>
+        <button class="tb-logout" onclick="doLogout()">Logout</button>
+      </div>
+    </div>
+
+    <!-- Page containers — filled by loader.js -->
+    <div class="page active" id="page-dashboard"></div>
+    <div class="page"        id="page-fi"></div>
+    <div class="page"        id="page-mm"></div>
+    <div class="page"        id="page-sd"></div>
+
+    <footer>NovaCorp Industries Ltd. · Company Code NC01 · FI · MM · SD · KIIT Capstone 2026</footer>
+  </div>
+
+  <div id="toast"></div>
+
+  <!-- JS: order matters -->
+  <script src="js/state.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/mm.js"></script>
+  <script src="js/sd.js"></script>
+
+  <!-- Page loader — fetches HTML partials then boots the app -->
+  <script>
+    (async () => {
+      const pages = ['dashboard','fi','mm','sd'];
+      await Promise.all(pages.map(async p => {
+        const res  = await fetch(`pages/${p}.html`);
+        const html = await res.text();
+        document.getElementById(`page-${p}`).innerHTML = html;
+      }));
+      // Wire up SO GST preview AFTER sd.html is in the DOM
+      document.getElementById('so-price').addEventListener('input', calcGST);
+      document.getElementById('so-qty').addEventListener('input',   calcGST);
+      document.getElementById('lp').addEventListener('keydown', e => { if(e.key==='Enter') doLogin(); });
+    })();
+  </script>
+
+</body>
+</html>

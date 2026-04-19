@@ -1,0 +1,76 @@
+<!-- SD — Sales & Distribution Module -->
+
+<div class="flow">
+  <div class="fstep" style="background:var(--purple-bg);color:var(--purple);border:1px solid #7c3aed55">Customer</div>
+  <div class="farrow">→</div>
+  <div class="fstep" style="background:var(--purple-bg);color:var(--purple);border:1px solid #7c3aed55">Sales Order</div>
+  <div class="farrow">→</div>
+  <div class="fstep" style="background:var(--purple-bg);color:var(--purple);border:1px solid #7c3aed55">Delivery</div>
+  <div class="farrow">→</div>
+  <div class="fstep" style="background:var(--purple-bg);color:var(--purple);border:1px solid #7c3aed55">Invoice</div>
+  <div class="farrow">→</div>
+  <div class="fstep" style="background:var(--green-bg);color:var(--green);border:1px solid #238636">FI: Revenue ↑ · Receivable ↑</div>
+</div>
+
+<div class="kpi-row" style="grid-template-columns:repeat(3,1fr);margin-bottom:20px">
+  <div class="kpi ops-kpi"><div class="num" id="sd-k-so"   style="color:var(--purple)">0</div><div class="lbl">Sales Orders</div></div>
+  <div class="kpi fi-kpi"> <div class="num" id="sd-k-rev"  style="color:var(--green)">₹0</div><div class="lbl">Total Revenue</div></div>
+  <div class="kpi ops-kpi"><div class="num" id="sd-k-cust" style="color:var(--text)">0</div><div class="lbl">Active Customers</div></div>
+</div>
+
+<div class="two-col">
+  <div>
+    <div class="sec">Add Customer</div>
+    <div class="panel">
+      <div class="panel-body">
+        <div class="form-grid">
+          <div class="fgroup"><label>Customer Name</label><input id="cu-name" placeholder="e.g. Infosys Ltd."></div>
+          <div class="fgroup"><label>Type</label><select id="cu-type"><option>Domestic</option><option>Export</option><option>Government</option></select></div>
+        </div>
+        <div class="form-grid">
+          <div class="fgroup"><label>City</label><input id="cu-city" placeholder="Mumbai"></div>
+          <div class="fgroup"><label>Credit Limit (₹)</label><input id="cu-cred" type="number" placeholder="500000"></div>
+        </div>
+        <button class="btn btn-purple" onclick="addCustomer()">+ Add Customer</button>
+      </div>
+    </div>
+
+    <div class="sec">Customers</div>
+    <div class="panel">
+      <table>
+        <thead><tr><th>ID</th><th>Name</th><th>City</th><th>Credit Limit</th><th></th></tr></thead>
+        <tbody id="cust-tbl"><tr><td colspan="5" style="text-align:center;color:var(--text3);padding:20px;font-style:italic;">No customers.</td></tr></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div>
+    <div class="sec">Create Sales Order</div>
+    <div class="panel">
+      <div class="panel-body">
+        <div class="form-grid">
+          <div class="fgroup"><label>Customer</label><select id="so-cust"><option value="">— Select Customer —</option></select></div>
+          <div class="fgroup"><label>Sales Org</label><select id="so-org"><option>NC_SN — North India</option><option>NC_SS — South India</option></select></div>
+        </div>
+        <div class="form-grid three">
+          <div class="fgroup"><label>Product</label><input id="so-prod" placeholder="FERT-001"></div>
+          <div class="fgroup"><label>Qty</label><input id="so-qty" type="number" placeholder="10" min="1"></div>
+          <div class="fgroup"><label>Unit Price (₹)</label><input id="so-price" type="number" placeholder="25000"></div>
+        </div>
+        <div class="form-grid">
+          <div class="fgroup"><label>Channel</label><select id="so-ch"><option>Wholesale</option><option>Retail</option><option>Online</option></select></div>
+          <div class="fgroup"><label>GST (18%)</label><input id="so-gst" readonly placeholder="Auto-calculated" style="color:var(--yellow);background:var(--surface2)"></div>
+        </div>
+        <button class="btn btn-purple" onclick="createSO()">▶ Create Sales Order</button>
+      </div>
+    </div>
+
+    <div class="sec">Sales Orders</div>
+    <div class="panel">
+      <table>
+        <thead><tr><th>SO No.</th><th>Customer</th><th>Product</th><th>Qty</th><th>Net</th><th>GST</th><th>Total</th><th>Status</th></tr></thead>
+        <tbody id="so-tbl"><tr><td colspan="8" style="text-align:center;color:var(--text3);padding:20px;font-style:italic;">No sales orders.</td></tr></tbody>
+      </table>
+    </div>
+  </div>
+</div>

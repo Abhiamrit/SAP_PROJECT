@@ -1,0 +1,112 @@
+/* ─────────────────────────────────────────
+   LAYOUT — Topbar · Page Shell · Grid
+   ───────────────────────────────────────── */
+
+/* App shell */
+#app { display: none; min-height: 100vh; }
+
+/* Topbar */
+.topbar {
+  height: 56px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.tb-logo {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--accent);
+  letter-spacing: 0.5px;
+  padding-right: 24px;
+  border-right: 1px solid var(--border);
+  margin-right: 4px;
+}
+
+.tb-nav { display: flex; flex: 1; }
+
+.tb-nav a {
+  padding: 0 16px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text2);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.15s;
+  text-decoration: none;
+}
+.tb-nav a:hover          { color: var(--text); }
+.tb-nav a.active         { color: var(--text); border-bottom-color: var(--blue); }
+
+.tb-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: auto;
+}
+
+.tb-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  background: var(--blue-dim);
+  border: 1px solid #1f6feb55;
+  color: var(--blue);
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+.tb-logout {
+  font-size: 12px;
+  color: var(--text3);
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 5px 12px;
+  transition: all 0.15s;
+}
+.tb-logout:hover { color: var(--text); border-color: var(--text3); }
+
+/* Pages */
+.page        { display: none; max-width: 1160px; margin: 0 auto; padding: 28px 24px; }
+.page.active { display: block; }
+
+/* Grid helpers */
+.two-col   { display: grid; grid-template-columns: 1fr 1fr;       gap: 16px; }
+.three-col { display: grid; grid-template-columns: 1fr 1fr 1fr;   gap: 16px; }
+
+/* Section divider */
+.strip-divider { height: 1px; background: var(--border2); margin: 16px 0 12px; }
+
+/* Section heading */
+.sec {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text2);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.sec::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 24px;
+  font-size: 11px;
+  color: var(--text3);
+  border-top: 1px solid var(--border);
+  margin-top: 32px;
+  font-family: 'JetBrains Mono', monospace;
+}

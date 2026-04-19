@@ -1,0 +1,48 @@
+<!-- FI — Finance Module -->
+
+<div class="kpi-row" style="grid-template-columns:repeat(4,1fr)">
+  <div class="kpi fi-kpi"><div class="num" id="fi-k-rev"    style="color:var(--green)">₹0</div><div class="lbl">Revenue</div></div>
+  <div class="kpi fi-kpi"><div class="num" id="fi-k-exp"    style="color:var(--red)">₹0</div><div class="lbl">Expenses</div></div>
+  <div class="kpi fi-kpi"><div class="num" id="fi-k-profit">₹0</div><div class="lbl">Profit</div></div>
+  <div class="kpi fi-kpi"><div class="num" id="fi-k-gst"    style="color:var(--yellow)">₹0</div><div class="lbl">GST Collected</div></div>
+</div>
+
+<div class="two-col">
+  <div>
+    <div class="sec">GL Account Balances</div>
+    <div class="panel">
+      <table>
+        <thead><tr><th>GL Account</th><th>Description</th><th>Balance (₹)</th></tr></thead>
+        <tbody>
+          <tr><td class="mono">110000</td><td>Accounts Receivable</td><td class="mono" id="gl-110000" style="color:var(--blue)">₹0</td></tr>
+          <tr><td class="mono">200000</td><td>Accounts Payable</td><td class="mono" id="gl-200000" style="color:var(--orange)">₹0</td></tr>
+          <tr><td class="mono">300000</td><td>Sales Revenue</td><td class="mono" id="gl-300000" style="color:var(--green)">₹0</td></tr>
+          <tr><td class="mono">600200</td><td>GST Output (18%)</td><td class="mono" id="gl-600200" style="color:var(--yellow)">₹0</td></tr>
+          <tr><td class="mono">800000</td><td>Inventory / COGS</td><td class="mono" id="gl-800000" style="color:var(--red)">₹0</td></tr>
+          <tr><td class="mono">850000</td><td>GR/IR Clearing</td><td class="mono" id="gl-850000" style="color:var(--text2)">₹0</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div>
+    <div class="sec">Journal Entries</div>
+    <div class="panel">
+      <table>
+        <thead><tr><th>Description</th><th>Debit</th><th>Credit</th></tr></thead>
+        <tbody id="fi-journal-tbl">
+          <tr><td colspan="3" style="text-align:center;color:var(--text3);padding:20px;font-style:italic;">No entries yet.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="sec">All Journal Entries</div>
+<div class="panel">
+  <table>
+    <thead><tr><th>Date</th><th>Description</th><th>Debit (₹)</th><th>Credit (₹)</th><th>Source</th></tr></thead>
+    <tbody id="fi-all-journal">
+      <tr><td colspan="5" style="text-align:center;color:var(--text3);padding:24px;font-style:italic;">No entries yet.</td></tr>
+    </tbody>
+  </table>
+</div>

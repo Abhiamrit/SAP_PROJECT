@@ -1,0 +1,47 @@
+/* ─────────────────────────────────────────
+   BASE — Reset · CSS Variables · Typography
+   ───────────────────────────────────────── */
+
+*  { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  /* Surfaces */
+  --bg:       #0d1117;
+  --surface:  #161b22;
+  --surface2: #1c2333;
+
+  /* Borders */
+  --border:  #30363d;
+  --border2: #21262d;
+
+  /* Text */
+  --text:  #e6edf3;
+  --text2: #8b949e;
+  --text3: #6e7681;
+
+  /* Accent palette */
+  --blue:       #2f81f7;
+  --blue-dim:   #1f6feb22;
+  --green:      #3fb950;
+  --green-dim:  #238636;
+  --green-bg:   #0d4429;
+  --red:        #f85149;
+  --red-bg:     #3d1515;
+  --orange:     #ffa657;
+  --orange-bg:  #3d2b00;
+  --purple:     #bc8cff;
+  --purple-bg:  #2a1a4a;
+  --yellow:     #e3b341;
+  --accent:     #58a6ff;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background:  var(--bg);
+  color:       var(--text);
+  font-size:   14px;
+  line-height: 1.5;
+}
+
+button { cursor: pointer; font-family: 'Inter', sans-serif; }
+input, select { font-family: 'Inter', sans-serif; }

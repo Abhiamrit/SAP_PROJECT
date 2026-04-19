@@ -1,0 +1,72 @@
+<!-- MM — Materials Management Module -->
+
+<div class="flow">
+  <div class="fstep" style="background:var(--blue-dim);color:var(--blue);border:1px solid #1f6feb55">Vendor</div>
+  <div class="farrow">→</div>
+  <div class="fstep" style="background:var(--blue-dim);color:var(--blue);border:1px solid #1f6feb55">Purchase Order</div>
+  <div class="farrow">→</div>
+  <div class="fstep" style="background:var(--blue-dim);color:var(--blue);border:1px solid #1f6feb55">Goods Receipt</div>
+  <div class="farrow">→</div>
+  <div class="fstep" style="background:var(--blue-dim);color:var(--blue);border:1px solid #1f6feb55">Invoice</div>
+  <div class="farrow">→</div>
+  <div class="fstep" style="background:var(--green-bg);color:var(--green);border:1px solid #238636">FI: Expense ↑ · Payable ↑</div>
+</div>
+
+<div class="kpi-row" style="grid-template-columns:repeat(3,1fr);margin-bottom:20px">
+  <div class="kpi ops-kpi"><div class="num" id="mm-k-po"    style="color:var(--blue)">0</div><div class="lbl">Purchase Orders</div></div>
+  <div class="kpi fi-kpi"> <div class="num" id="mm-k-spend" style="color:var(--red)">₹0</div><div class="lbl">Total Spend</div></div>
+  <div class="kpi ops-kpi"><div class="num" id="mm-k-vend"  style="color:var(--text)">0</div><div class="lbl">Active Vendors</div></div>
+</div>
+
+<div class="two-col">
+  <div>
+    <div class="sec">Add Vendor</div>
+    <div class="panel">
+      <div class="panel-body">
+        <div class="form-grid">
+          <div class="fgroup"><label>Vendor Name</label><input id="vn-name" placeholder="e.g. Tata Steel Ltd."></div>
+          <div class="fgroup"><label>Type</label><select id="vn-type"><option>Domestic</option><option>Import</option><option>Services</option></select></div>
+        </div>
+        <div class="form-grid">
+          <div class="fgroup"><label>City</label><input id="vn-city" placeholder="Delhi"></div>
+          <div class="fgroup"><label>Payment Terms</label><select id="vn-terms"><option>Net 30</option><option>Net 15</option><option>2/10 Net 30</option></select></div>
+        </div>
+        <button class="btn btn-blue" onclick="addVendor()">+ Add Vendor</button>
+      </div>
+    </div>
+
+    <div class="sec">Vendors</div>
+    <div class="panel">
+      <table>
+        <thead><tr><th>ID</th><th>Name</th><th>City</th><th>Type</th><th></th></tr></thead>
+        <tbody id="vend-tbl"><tr><td colspan="5" style="text-align:center;color:var(--text3);padding:20px;font-style:italic;">No vendors.</td></tr></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div>
+    <div class="sec">Create Purchase Order</div>
+    <div class="panel">
+      <div class="panel-body">
+        <div class="form-grid">
+          <div class="fgroup"><label>Vendor</label><select id="po-vend"><option value="">— Select Vendor —</option></select></div>
+          <div class="fgroup"><label>Plant</label><select id="po-plant"><option>NC_P1 — Mumbai</option><option>NC_P2 — Delhi</option><option>NC_P3 — Pune</option></select></div>
+        </div>
+        <div class="form-grid three">
+          <div class="fgroup"><label>Material</label><input id="po-mat" placeholder="ROH-001"></div>
+          <div class="fgroup"><label>Qty</label><input id="po-qty" type="number" placeholder="100" min="1"></div>
+          <div class="fgroup"><label>Unit Price (₹)</label><input id="po-price" type="number" placeholder="5000"></div>
+        </div>
+        <button class="btn btn-blue" onclick="createPO()">▶ Create Purchase Order</button>
+      </div>
+    </div>
+
+    <div class="sec">Purchase Orders</div>
+    <div class="panel">
+      <table>
+        <thead><tr><th>PO No.</th><th>Vendor</th><th>Material</th><th>Qty</th><th>Amount</th><th>Status</th></tr></thead>
+        <tbody id="po-tbl"><tr><td colspan="6" style="text-align:center;color:var(--text3);padding:20px;font-style:italic;">No purchase orders.</td></tr></tbody>
+      </table>
+    </div>
+  </div>
+</div>
